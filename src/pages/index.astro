@@ -1,82 +1,34 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar/Navbar.astro'
+import Navbar from '../components/Navbar/Navbar.astro';
 import CTA from '../components/CTA/CTA.astro';
 
+import Hero from '../components/Hero/Hero.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-	<div class="root">
-		<Navbar />
-		<main>
-			<header>
+<Layout title='Welcome to Astro.'>
+  <div class='root'>
+    <Navbar />
+    <main>
+      <header></header>
+      <section>
+        <CTA nameCta='Click me' text='' href='' />
+        <script>
+          import { mixPanelLocal } from '../ts/services/Mixpanel';
+          import { $ } from '../ts/utils';
 
-			</header>
-			<section>
-				<CTA nameCta="Click me" text="me hicieron click"/>
-				<script>
-					import { mixPanelLocal } from "../ts/services/Mixpanel"
-					import { $ } from '../ts/utils'
+          $('[data-cta="Click me"]')?.addEventListener(
+            'click',
+            ({ target }) => {
+              if (!(target instanceof HTMLAnchorElement)) return;
 
-
-					$('[data-cta="Click me"]')?.addEventListener('click',({ target })=>{
-						if(!(target instanceof HTMLAnchorElement))
-							return
-
-						mixPanelLocal()
-							.trackCta(target.textContent || '')
-					})
-
-				</script>
-				
-			</section>
-		</main>
-		<script src='../ts/main.ts'></script>
-	</div>
-	
+              mixPanelLocal().trackCta(target.textContent || '');
+            }
+          );
+        </script>
+      </section>
+      <Hero />
+    </main>
+    <script src='../ts/main.ts'></script>
+  </div>
 </Layout>
-
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>
