@@ -1,0 +1,12 @@
+---
+export interface Props{
+  nameCta: string;
+  text: string;
+}
+const { nameCta, text } = Astro.props
+---
+
+<a data-cta={nameCta} href="#">
+  {text}
+</a>
+
