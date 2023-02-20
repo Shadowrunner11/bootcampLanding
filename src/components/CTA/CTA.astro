@@ -7,7 +7,7 @@ export interface Props{
 const { nameCta, text, href } = Astro.props
 ---
 
-<a data-cta={nameCta} href={href}>
+<a class="btn btn-primary" data-cta={nameCta} href={href}>
   {text}
 </a>
 
