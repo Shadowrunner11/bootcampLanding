@@ -15,19 +15,19 @@ export class Schedule {
       return true
   
     const currenTime = new Date().getUTCHours()
-    return currenTime < (this.to ?? 0) && currenTime > (this.from ?? 23)
+    return currenTime <= (this.to ?? 0) && currenTime >= (this.from ?? 23)
   }
 }
 
 
 export class Whatsapp {
-  schedules: Schedule[]
+  schedules: Schedule[] | Schedule
   text: string;
   contact: Contact;
 
 
   constructor(schedules: Schedule[] | Schedule, conctact: Contact, text = defaultText ){
-    this.schedules = Array.isArray(schedules)? schedules : [schedules]
+    this.schedules = schedules
     this.contact = conctact
     this.text = text
   }
@@ -48,7 +48,10 @@ export class Whatsapp {
   }
 
   get isAvailable(){
-    return Boolean(this.schedules.find(schedule => schedule.isInTime))
+    if(Array.isArray(this.schedules))
+      return Boolean(this.schedules.find(schedule => schedule.isInTime))
+
+    return this.schedules.isInTime
   }
 
   get linkString(){

@@ -27,6 +27,8 @@ export function addCTAWpClickListener(dataCta: string){
 
   const contacts = serviceWp.getContacts(true) as Whatsapp[]
 
+  console.log(contacts)
+
   $(`[data-cta="${dataCta}"]`)?.addEventListener('click', ({ target }) => {
     if (!(target instanceof HTMLAnchorElement)) return;
 

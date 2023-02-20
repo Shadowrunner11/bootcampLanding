@@ -5,13 +5,20 @@ import Section from '../layouts/Section.astro';
 import Hero from '../components/Hero/Hero.astro';
 import Themes from '../components/Themes/Themes.astro';
 import Contact from '../components/Contact/Contact.astro';
-import Code from '../components/Code/Code.astro';
+
+const isDeveleporMode = import.meta.env.DEV
 ---
 
 <Layout title='Bootcamp para principinates CONOVATEC'>
   <div class='root relative'>
     <Navbar />
     <main>
+      { isDeveleporMode &&(
+        <div class="toast">
+          <p>Esto solo se mostrara si estas en modo dev</p>
+          <p>Se tiene q implementar la capacidad de emular diversos escenarios como el de que si este disponible el contacto de wp, aca se deben mostrar las opciones o en un modal</p>
+        </div>
+      ) }
       <Hero />
       <Section sectionClasses={['p-12']}>
         <h2 id="themes" class="text-4xl md:text-6xl font-bold mb-12">Que aprenderas?</h2>
