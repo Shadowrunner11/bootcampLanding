@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar/Navbar.astro';
-import CTA from '../components/CTA/CTA.astro';
 import Section from '../layouts/Section.astro';
 import Hero from '../components/Hero/Hero.astro';
 import Themes from '../components/Themes/Themes.astro';
+import Contact from '../components/Contact/Contact.astro';
+import Code from '../components/Code/Code.astro';
 ---
 
 <Layout title='Bootcamp para principinates CONOVATEC'>
@@ -12,10 +13,11 @@ import Themes from '../components/Themes/Themes.astro';
     <Navbar />
     <main>
       <Hero />
-      <Section>
-        <h2 id="themes" class="text-4xl md:text-6xl font-bold pb-12">Que aprenderas?</h2>
+      <Section sectionClasses={['p-12']}>
+        <h2 id="themes" class="text-4xl md:text-6xl font-bold mb-12">Que aprenderas?</h2>
         <Themes />
       </Section>
+      <Contact />
     </main>
     <script src='../ts/main.ts'></script>
   </div>

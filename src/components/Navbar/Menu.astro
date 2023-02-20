@@ -2,55 +2,25 @@
 import CloseMenu from "../Icons/CloseMenu.astro";
 import MenuIcon from "../Icons/Menu.astro";
 import IconSwap from "../IconSwap.astro";
-import ListItems from "./Listitems/ListItems.astro";
-import styles from './styles.module.css'
 
-const menuStyle = 'dropdown-content hidden max-w-md menu bg-base-100'
 ---
-<div class="dropdown dropdown-open">
-  <button 
-    role="img" 
-    aria-label="Menu" 
-    type="button"
-    data-button="menu"
-    class="md:hidden btn btn-ghost"
-  >
-    <label class="swap">
-      <input type="checkbox">
-      <IconSwap>
-        <MenuIcon />
-      </IconSwap>
-      <IconSwap on>
-        <CloseMenu />
-      </IconSwap> 
-    </label>
-  </button>
-  <ul class={`${menuStyle} ${styles.navbarMenu}`} >
-    <ListItems />
-  </ul>
-</div>
+<button 
+  role="img" 
+  aria-label="Menu" 
+  type="button"
+  data-button="menu"
+  class="md:hidden btn btn-ghost"
+>
+  <label class="swap">
+    <input title="close menu" type="checkbox">
+    <IconSwap>
+      <MenuIcon />
+    </IconSwap>
+    <IconSwap on>
+      <CloseMenu />
+    </IconSwap> 
+  </label>
+</button>
 
-<script>
-  import { $ } from '../../ts/utils/selectors'
-  import { clickHandle } from './main'
 
-  const dropdown = $('.dropdown')
-  const events = ['click']
-  let isClosed = true
 
-  events
-    .forEach((eventType: string) => {
-      dropdown?.addEventListener(eventType, function(this: Element, event){
-        isClosed = !isClosed
-        
-        event.preventDefault()
-        event.stopPropagation()
-
-        if(!isClosed && eventType === 'focusout')
-          return
-
-        clickHandle(this)
-        $('.dropdown-content')?.classList.toggle('hidden')
-      })
-    })
-</script>

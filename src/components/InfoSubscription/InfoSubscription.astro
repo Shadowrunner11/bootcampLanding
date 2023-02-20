@@ -1,0 +1,30 @@
+---
+import { isSupabaseActive } from '../../ts/config/supabase';
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props
+
+const textBody = isSupabaseActive ? 
+  'Estaremos enviando a tu correo la informacion para completar tu inscripcion':
+  'No esta disponible el envio de correos por el momento, intentalo mas tarde'
+---
+
+<label for={id} />
+<input type="checkbox" id={id} class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">Muchas gracias!</h3>
+    <p class="py-4">{textBody}</p>
+    {
+      (import.meta.env.DEV && !isSupabaseActive) && 
+        <p>Como estas en modo de desarollo, es posible que no hayas seteado una env</p>
+    }
+    <div class="modal-action">
+      <label for={id} class="btn">De acuerdo</label>
+    </div>
+  </div>
+</div>
+

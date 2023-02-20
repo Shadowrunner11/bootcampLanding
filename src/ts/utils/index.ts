@@ -1,4 +1,4 @@
-export { $ } from './selectors'
+export { $, $$ } from './selectors'
 
 export function prefixWithBase(href: string){
 

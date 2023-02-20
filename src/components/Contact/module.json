@@ -1,0 +1,19 @@
+{
+  "formFields": [
+    {
+      "label": "Nombre",
+      "type": "text",
+      "name": "name"
+    },
+    {
+      "label": "Correo",
+      "type": "email",
+      "name": "email"
+    },
+    {
+      "label": "Telefono",
+      "type": "text",
+      "name": "phone"
+    }
+  ]
+}

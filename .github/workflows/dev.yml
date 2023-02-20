@@ -10,7 +10,9 @@ jobs:
   deploy-dev:
     environment: dev
     env:
-      VITE_THOT_GRAPHQL: ${{ vars.PUBLIC_MIXPANEL_KEY }}
+      PUBLIC_MIXPANEL_KEY: ${{ vars.PUBLIC_MIXPANEL_KEY }}
+      PUBLIC_SUPABASE_API: ${{ vars.PUBLIC_SUPABASE_API }}
+      PUBLIC_SUPABSE_TOKEN: ${{ vars.PUBLIC_SUPABSE_TOKEN }}
     name: deploy dev
     runs-on: ubuntu-latest
     steps:

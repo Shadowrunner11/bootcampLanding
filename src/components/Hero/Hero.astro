@@ -5,12 +5,12 @@ import { backgroundURl } from './properties.json'
 const imageUrl = prefixWithBase(import.meta.env.DEV ? backgroundURl.dev : backgroundURl.prod)
 ---
 <header class="hero min-h-screen bg-base-200">
-  <div class="hero-content flex-col lg:flex-row-reverse gap-12 px-10 mt-14 md:mt-0">
+  <div class="hero-content flex-col lg:flex-row-reverse gap-12 px-20 mt-14 md:mt-0">
     <div class="max-w-md">
       <img src={ imageUrl } class="w-full" />
     </div>
     <div>
-      <button class="btn btn-sm btn-outline mb-8">Comunidad de voluntarios</button>
+      <span class="btn btn-sm btn-outline mb-8">Comunidad de voluntarios</span>
       <h1 class="text-4xl md:text-6xl font-bold">Bootcamp CONOVATEC</h1>
       <p class="py-6 text-2xl">
         Únete a nuestro bootcamp de programación y comienza a construir las herramientas que cambiarán el mundo.
@@ -21,7 +21,8 @@ const imageUrl = prefixWithBase(import.meta.env.DEV ? backgroundURl.dev : backgr
 </header>
 
 <script>
-  import { addCTAClikListener }  from '../../ts/controllers/CTA'
+  import { addCTAWpClickListener }  from '../../ts/controllers/CTA'
 
-  addCTAClikListener("inscribirse")
+
+  addCTAWpClickListener("inscribirse")
 </script>
