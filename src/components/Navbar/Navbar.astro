@@ -1,8 +1,8 @@
 ---
-import Conovatec from "../../icons/Conovatec.astro";
+import Conovatec from "../Icons/Conovatec.astro";
 import Menu from "./Menu.astro";
 import SwapTheme from "./SwapTheme.astro";
-
+import ListItems from './Listitems/ListItems.astro';
 ---
 <nav class="navbar p-4 fixed top-0 bg-base-100">
   <div class="navbar-start">
@@ -10,6 +10,11 @@ import SwapTheme from "./SwapTheme.astro";
     <div class="p-2">
       <Conovatec />
     </div>
+  </div>
+  <div class="navbar-center">
+    <ul class="menu hidden md:menu-horizontal">
+      <ListItems />
+    </ul>
   </div>
   <div class="navbar-end">
     <SwapTheme />

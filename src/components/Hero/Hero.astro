@@ -1,4 +1,5 @@
 ---
+import CTA from '../CTA/CTA.astro';
 import { backgroundURl } from './properties.json'
 const imageUrl =  import.meta.env.DEV ? backgroundURl.dev : backgroundURl.prod
 ---
@@ -9,9 +10,17 @@ const imageUrl =  import.meta.env.DEV ? backgroundURl.dev : backgroundURl.prod
     </div>
     <div>
       <button class="btn btn-sm btn-outline mb-8">Comunidad de voluntarios</button>
-      <h1 class="text-4xl md:text-6xl font-bold">Bootcamp Conovatec</h1>
-      <p class="py-6 text-2xl">Únete a nuestro bootcamp de programación y comienza a construir las herramientas que cambiarán el mundo.</p>
-      <button class="btn btn-primary">Inscríbete ya</button>
+      <h1 class="text-4xl md:text-6xl font-bold">Bootcamp CONOVATEC</h1>
+      <p class="py-6 text-2xl">
+        Únete a nuestro bootcamp de programación y comienza a construir las herramientas que cambiarán el mundo.
+      </p>
+      <CTA href="#" nameCta="inscribirse" text="Inscríbete ya" />
     </div>
   </div>
 </div>
+
+<script>
+  import { addCTAClikListener }  from '../../ts/controllers/CTA'
+
+  addCTAClikListener("inscribirse")
+</script>

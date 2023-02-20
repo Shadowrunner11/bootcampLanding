@@ -1,0 +1,8 @@
+{
+  "navigation":{
+    "items":[
+      {"label": "Contactanos", "href": "#contact", "data":"contactanos"},
+      {"label": "Informacion", "href": "#info", "data":"contactanos"}
+    ]
+  }
+}

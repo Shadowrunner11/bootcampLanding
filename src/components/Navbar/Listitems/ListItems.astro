@@ -1,0 +1,13 @@
+---
+import { navigation } from './properties.json'
+
+const { items } = navigation
+---
+
+{
+  items.map(({label, href})=>(
+    <li>
+      <a href={href}>{ label }</a>
+    </li>
+  ))
+}
