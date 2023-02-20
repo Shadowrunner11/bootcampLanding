@@ -1,7 +1,7 @@
 {
   "navigation":{
     "items":[
-      {"label": "Contactanos", "href": "#contact", "data":"contactanos"},
+      {"label": "Temario", "href": "#themes", "data":"contactanos"},
       {"label": "Informacion", "href": "#info", "data":"contactanos"}
     ]
   }
