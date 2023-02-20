@@ -11,22 +11,6 @@ import Themes from '../components/Themes/Themes.astro';
   <div class='root relative'>
     <Navbar />
     <main>
-      <section>
-        <CTA nameCta='Click me' text='' href='' />
-        <script>
-          import { mixPanelLocal } from '../ts/services/Mixpanel';
-          import { $ } from '../ts/utils';
-
-          $('[data-cta="Click me"]')?.addEventListener(
-            'click',
-            ({ target }) => {
-              if (!(target instanceof HTMLAnchorElement)) return;
-
-              mixPanelLocal().trackCta(target.textContent || '');
-            }
-          );
-        </script>
-      </section>
       <Hero />
       <Section>
         <h2 id="themes" class="text-4xl md:text-6xl font-bold pb-12">Que aprenderas?</h2>
