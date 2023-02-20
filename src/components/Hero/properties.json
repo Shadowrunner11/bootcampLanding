@@ -1,6 +1,6 @@
 {
   "backgroundURl": {
-    "prod":"https://res.cloudinary.com/dokwefr5i/image/upload/v1676845752/BootcampLanding/daniel-korpai-8GDCzWrcE3M-unsplash_tu4r40.jpg",
+    "prod":"/cat.svg",
     "dev": "/cat.svg"
   }
 }
