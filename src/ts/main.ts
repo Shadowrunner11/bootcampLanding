@@ -1,7 +1,9 @@
 import { mixPanelLocal } from "./services/Mixpanel"
 
 addEventListener('load', ()=>{
-  localStorage.setItem('theme', 'dark')
+  if(localStorage.getItem('theme'))
+    localStorage.setItem('theme', 'dark')
+
   mixPanelLocal()
     .trackVisit()
 })
