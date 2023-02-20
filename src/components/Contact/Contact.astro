@@ -4,7 +4,7 @@ import DeafultInput from './DeafultInput.astro';
 import { formFields } from './module.json'
 ---
 
-<form class="flex flex-col justify-center items-center gap-8"id="contact" data-form="contact">
+<form class="flex flex-col justify-center items-center gap-8 md:px-20 p-12" id="contact" data-form="contact">
   {
     formFields.map(({ label, name, type })=>(
       <DeafultInput label={label} name={name} type={type as any}/>
