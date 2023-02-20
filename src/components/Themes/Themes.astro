@@ -1,0 +1,16 @@
+---
+import ThemeItem from "./ThemeItem.astro";
+import { themes } from './modules.json'
+
+---
+
+<div class="mockup-code w-full">
+  <pre data-prefix="$"><code>cat temario</code></pre> 
+
+  {themes.map(({title, topics})=>(
+    <ThemeItem title={title} topics={topics}/>
+  ))}
+  
+
+  <pre class="text-success"><code>Proyecto final 🚀</code></pre>
+</div>

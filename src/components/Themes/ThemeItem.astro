@@ -1,0 +1,16 @@
+---
+interface Props {
+  title: string;
+  topics: string [];
+}
+const { title, topics } =  Astro.props
+---
+
+<pre class="text-success"><code>{title} 🚀</code></pre>
+{
+  topics.map(topic => (
+    <pre class="text">
+      <code>🧑‍💻 {topic}</code>
+    </pre>
+  ))
+}

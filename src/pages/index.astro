@@ -2,15 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar/Navbar.astro';
 import CTA from '../components/CTA/CTA.astro';
-
+import Section from '../layouts/Section.astro';
 import Hero from '../components/Hero/Hero.astro';
+import Themes from '../components/Themes/Themes.astro';
 ---
 
 <Layout title='Welcome to Astro.'>
   <div class='root relative'>
     <Navbar />
     <main>
-      <header></header>
       <section>
         <CTA nameCta='Click me' text='' href='' />
         <script>
@@ -28,6 +28,10 @@ import Hero from '../components/Hero/Hero.astro';
         </script>
       </section>
       <Hero />
+      <Section>
+        <h2 id="themes" class="text-4xl md:text-6xl font-bold pb-12">Que aprenderas?</h2>
+        <Themes />
+      </Section>
     </main>
     <script src='../ts/main.ts'></script>
   </div>
