@@ -29,7 +29,8 @@ import IconSwap from '../IconSwap.astro';
 
   $('label.swap > button[data-button="change-theme"]')?.addEventListener(
     'click',
-    function (this: HTMLButtonElement) {
+    function (this: HTMLButtonElement, event) {
+      event.preventDefault()
       if (!(this.parentElement instanceof HTMLElement)) return;
 
       clickHandle(this.parentElement);
