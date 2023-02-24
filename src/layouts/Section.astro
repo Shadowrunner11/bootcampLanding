@@ -10,7 +10,7 @@ const addedClases = sectionClasses
   ?.reduce((prev, next) =>  prev + ' ' + next , '') ?? ''
 ---
 
-<section class={`w-screen ${isScreenFull && 'h-screen'}${addedClases}` } >
+<section class={`${isScreenFull && 'h-screen'}${addedClases}` } >
   <div class="max-w-screen-xl m-auto p-12">
     <slot />
   </div>

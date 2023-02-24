@@ -1,0 +1,15 @@
+---
+import CardInstructor from '../CardInstructor/CardInstructor.astro';
+import { data }  from './properties.json'
+
+const { isCard } = Astro.props
+---
+{data.map(({name, src}, id, { length })=>(
+  <div id={`item${id}`} class={`carousel-item w-full md:w-3/12 justify-center ${isCard && 'card'}`}>
+    <CardInstructor isCard={isCard} name={name} src={src}/>
+    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <a href={`#item${!id ? length -1 : id -1}`} class="btn btn-circle">❮</a> 
+      <a href={`#item${id+1 === length ? 0 : id + 1}`} class="btn btn-circle">❯</a>
+    </div>
+  </div>
+))}

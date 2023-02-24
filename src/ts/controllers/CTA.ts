@@ -3,7 +3,7 @@ import { WhatsappContacts } from "../services/WhatsappContacts";
 import { $ } from "../utils";
 import type { Whatsapp } from "./Whatsapp";
 
-export function addCTAClikListener(dataCta: string){
+export function addCTAClikListener(dataCta: string) {
   $(`[data-cta="${dataCta}"]`)?.addEventListener('click', ({ target }) => {
     if (!(target instanceof HTMLAnchorElement)) return;
 
@@ -11,18 +11,18 @@ export function addCTAClikListener(dataCta: string){
   })
 }
 
-export function changeWpHref(button: HTMLAnchorElement, conctacts: Whatsapp[]){
-  const [ firstWPContac ] = conctacts.filter(wp => wp.isAvailable)
+export function changeWpHref(button: HTMLAnchorElement, conctacts: Whatsapp[]) {
+  const [firstWPContac] = conctacts.filter(({ isAvailable }) => isAvailable)
 
-  if(firstWPContac)
+  if (firstWPContac)
     button.target = '_blank'
-  
+
   button.href = firstWPContac?.linkString ?? "#contact"
 }
 
 
 // TODO: revisar hay q hacer overloading
-export function addCTAWpClickListener(dataCta: string){
+export function addCTAWpClickListener(dataCta: string) {
   const serviceWp = new WhatsappContacts()
 
   const contacts = serviceWp.getContacts(true) as Whatsapp[]

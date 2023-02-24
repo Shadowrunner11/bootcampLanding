@@ -5,6 +5,8 @@ import Section from '../layouts/Section.astro';
 import Hero from '../components/Hero/Hero.astro';
 import Themes from '../components/Themes/Themes.astro';
 import Contact from '../components/Contact/Contact.astro';
+import Instructors from '../layouts/Instructors.astro';
+import InstructorsList from '../components/Instructors/InstructorsList.astro';
 
 const isDeveleporMode = import.meta.env.DEV
 ---
@@ -33,7 +35,13 @@ const isDeveleporMode = import.meta.env.DEV
         <h2 id="themes" class="text-4xl md:text-6xl font-bold mb-12">Que aprenderas?</h2>
         <Themes />
       </Section>
-      <Contact />
+      <Section>
+        <h2 id="themes" class="text-4xl md:text-6xl font-bold mb-12">Instructores</h2>
+        <Instructors>
+          <InstructorsList isCard={true}/>
+        </Instructors>
+        <Contact />
+      </Section>
     </main>
     <script src='../ts/main.ts'></script>
   </div>
