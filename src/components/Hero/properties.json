@@ -1,0 +1,6 @@
+{
+  "backgroundURl": {
+    "prod":"/cat.svg",
+    "dev": "/cat.svg"
+  }
+}

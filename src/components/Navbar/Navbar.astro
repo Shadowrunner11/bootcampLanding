@@ -1,11 +1,49 @@
 ---
+import Conovatec from "../Icons/Conovatec.astro";
 import Menu from "./Menu.astro";
 import SwapTheme from "./SwapTheme.astro";
-
+import ListItems from './Listitems/ListItems.astro';
 ---
-
-<nav class="navbar">
-  <Menu />
-  <SwapTheme />
-
+<nav class="fixed top-0 bg-base-100">
+  <div class="navbar p-4">
+    <div class="navbar-start">
+      <Menu data-button="menu"/>
+      <div class="p-2">
+        <Conovatec />
+      </div>
+    </div>
+    <div class="navbar-center">
+      <ul class="menu hidden md:menu-horizontal">
+        <ListItems />
+      </ul>
+    </div>
+    <div class="navbar-end">
+      <SwapTheme />
+    </div>
+  </div>
+  <div class="collapse">
+    <input class="hidden" type="checkbox">
+    <div class="collapse-content">
+      <ul>
+        <ListItems />
+      </ul>
+    </div>
+  </div>
 </nav>
+
+
+<script>
+  import { $ } from '../../ts/utils'
+  import { clickHandle } from './main'
+  const collabsesableInput = $('.collapse > input')
+
+  $('[data-button="menu"]')?.addEventListener('click', function(this: Element, event){
+    console.log('click')
+    event.preventDefault()
+
+    clickHandle(this)
+
+    if(collabsesableInput instanceof HTMLInputElement)
+      collabsesableInput.checked = !collabsesableInput.checked
+  })
+</script>

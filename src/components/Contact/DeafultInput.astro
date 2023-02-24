@@ -1,0 +1,12 @@
+---
+interface Props {
+  name: string;
+  label: string;
+  type?: astroHTML.JSX.HTMLInputTypeAttribute
+}
+const inputClasses = "input input-bordered input-primary w-full max-w-xs"
+
+const { label, name, type } = Astro.props
+---
+<label for={name}>{label}</label>
+<input class={inputClasses} name={name} id={name} type={type} required />

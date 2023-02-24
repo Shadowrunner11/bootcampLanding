@@ -1,0 +1,59 @@
+---
+import InfoSubscription from '../InfoSubscription/InfoSubscription.astro';
+import DeafultInput from './DeafultInput.astro';
+import { formFields } from './module.json'
+---
+
+<form class="flex flex-col justify-center items-center gap-8 md:px-20 p-12" id="contact" data-form="contact">
+  {
+    formFields.map(({ label, name, type })=>(
+      <DeafultInput label={label} name={name} type={type as any}/>
+    ))
+  }
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+<InfoSubscription id="subscription"/>
+
+<script>
+  import { $ } from '../../ts/utils'
+  import { sendForm } from './main'
+
+  function click(element?: Element | null){
+    if(element instanceof HTMLElement)
+      element.click()
+  }
+
+
+  $('[data-form="contact"]')?.addEventListener('submit', async function(this: Element, event){
+    event.preventDefault()
+
+    if(!(this instanceof HTMLFormElement))
+      return
+
+    const form = new FormData(this)
+
+    const pojo: Record<string, unknown> = {}
+    
+    form.forEach((value, key)=>{
+      pojo[key] = value
+    })
+
+    console.log(pojo)
+
+    const invalidFields = await sendForm(pojo)
+
+    console.log(invalidFields)
+
+    if(invalidFields?.length)
+      return invalidFields.forEach(path =>{
+        const element = $(`[name="${path}"`, this as HTMLFormElement)
+        
+        if(element instanceof HTMLInputElement)
+          element.insertAdjacentHTML('afterend', "error")
+      })
+
+    click($(`label[for="subscription"]`))
+
+  })
+</script>

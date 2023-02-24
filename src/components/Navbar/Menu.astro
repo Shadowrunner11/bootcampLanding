@@ -1,16 +1,18 @@
 ---
-import CloseMenu from "../../icons/CloseMenu.astro";
-import MenuIcon from "../../icons/Menu.astro";
+import CloseMenu from "../Icons/CloseMenu.astro";
+import MenuIcon from "../Icons/Menu.astro";
 import IconSwap from "../IconSwap.astro";
+
 ---
 <button 
   role="img" 
   aria-label="Menu" 
   type="button"
   data-button="menu"
+  class="md:hidden btn btn-ghost"
 >
   <label class="swap">
-    <input type="checkbox">
+    <input title="close menu" type="checkbox">
     <IconSwap>
       <MenuIcon />
     </IconSwap>
@@ -20,11 +22,5 @@ import IconSwap from "../IconSwap.astro";
   </label>
 </button>
 
-<script>
-  import { $ } from '../../ts/utils/selectors'
-  import { clickHandle } from './main'
 
-  $('[data-button="menu"]')?.addEventListener('click', function (this: any){
-    clickHandle(this)
-  })
-</script>
+
