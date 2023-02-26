@@ -14,9 +14,9 @@ jobs:
     steps:
       - uses: popovoleksandr/ipfs-pinata-deploy-action@v1.6.3
         with:
-          pin-name: 'My personal site'
+          pin-name: 'Bootcamp'
           path: './build'
-          pinata-api-key: ${{ env.PINATA_API_KEY }}
-          pinata-secret-api-key: ${{ env.PINATA_SECRET }}
+          pinata-api-key: ${{ secrets.PINATA_API_KEY }}
+          pinata-secret-api-key: ${{ secrets.PINATA_SECRET }}
           verbose: true
           remove-old: false
