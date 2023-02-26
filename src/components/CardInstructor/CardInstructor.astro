@@ -15,7 +15,7 @@ const { src, name, description, isCard, social } = Astro.props
 
 ---
 
-<div class={`flex flex-col justify-center align-center mh-84 gap-8 ${isCard && 'card-body border rounded'}`}>
+<div class={`flex flex-col justify-center align-center mh-84 gap-8`}>
   <Avatr src={src} />
   <h4 class="text-center text-xl font-black">{name}</h4>
   <div class="h-12">

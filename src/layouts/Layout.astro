@@ -24,7 +24,9 @@ const favIconUrl = prefixWithBase('/favicon.gif')
 		<title>{title}</title>
 	</head>
 	<body class="relative">
-		<slot />
-		<BackToTop />
+		<div class="wrapper">
+			<slot />
+			<BackToTop />
+		</div>
 	</body>
 </html>
