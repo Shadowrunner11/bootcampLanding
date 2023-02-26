@@ -8,7 +8,7 @@ const isGithubActions = process.env.GITHUB_ACTIONS
 export default defineConfig({
   ...(isGithubActions? { 
     site: 'https://astronaut.github.io', 
-    base: '/bootcampLanding'
+    base: process.env.PUBLIC_BASE_PATH
   } : {}),
   integrations: [tailwind()]
 });
