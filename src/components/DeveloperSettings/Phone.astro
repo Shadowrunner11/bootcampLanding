@@ -1,0 +1,17 @@
+---
+interface Props {
+  id: string;
+}
+
+const { id } =  Astro.props
+---
+
+<div class="form-control">
+  <label class="label">
+    <span class="label-text">Telefono para simular atencion</span>
+  </label>
+  <label class="input-group">
+    <span>Phone</span>
+    <input id={id} type="text" placeholder="51999999999" class="input input-bordered" />
+  </label>
+</div>

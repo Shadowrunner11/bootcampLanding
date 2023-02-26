@@ -1,15 +1,20 @@
 ---
 import CardInstructor from '../CardInstructor/CardInstructor.astro';
-import { data }  from './properties.json'
+import { data }  from './properties'
 
 const { isCard } = Astro.props
 ---
-{data.map(({name, src}, id, { length })=>(
-  <div id={`item${id}`} class={`carousel-item w-full md:w-3/12 justify-center ${isCard && 'card'}`}>
-    <CardInstructor isCard={isCard} name={name} src={src}/>
+{data.map(({name, src, description, social}, id, { length })=>(
+  <div id={`item${id}`} class={`carousel-item w-full md:w-3/12 justify-center shadow-base-300 shadow-md ${isCard && 'card'}`}>
+    <CardInstructor 
+      social={social}
+      isCard={isCard} 
+      name={name} 
+      src={src} 
+      description={description}/>
     <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href={`#item${!id ? length -1 : id -1}`} class="btn btn-circle">❮</a> 
-      <a href={`#item${id+1 === length ? 0 : id + 1}`} class="btn btn-circle">❯</a>
+      <a href={`#item${!id ? length -1 : id -1}`} class="btn btn-circle md:hidden">❮</a> 
+      <a href={`#item${id+1 === length ? 0 : id + 1}`} class="btn btn-circle md:hidden">❯</a>
     </div>
   </div>
 ))}

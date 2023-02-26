@@ -4,45 +4,37 @@ import Navbar from '../components/Navbar/Navbar.astro';
 import Section from '../layouts/Section.astro';
 import Hero from '../components/Hero/Hero.astro';
 import Themes from '../components/Themes/Themes.astro';
-/* import Contact from '../components/Contact/Contact.astro';
+import Contact from '../components/Contact/Contact.astro';
 import Instructors from '../layouts/Instructors.astro';
-import InstructorsList from '../components/Instructors/InstructorsList.astro'; */
+import InstructorsList from '../components/Instructors/InstructorsList.astro';
+import DeveloperAlert from '../components/DeveloperAlert/DeveloperAlert.astro';
+import Footer from '../layouts/Footer.astro';
+import FooterBody from '../components/Footer/FooterBody.astro';
 
-const isDeveleporMode = import.meta.env.DEV
+const isDeveleporMode = import.meta.env.PUBLIC_APP_MODE === 'development' || import.meta.env.DEV
 ---
 
 <Layout title='Bootcamp para principinates CONOVATEC'>
   <div class='root relative'>
     <Navbar />
     <main>
-      { isDeveleporMode &&(
-        <div class="toast alert hover:!bg-violet-600 z-50">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          <p>Esto solo se mostrara si estas en modo dev</p>
-          <p>Se tiene q implementar la capacidad de emular diversos escenarios como el de que si este disponible el contacto de wp, aca se deben mostrar las opciones o en un modal</p>
-          <button id="dev-dismiss" class="btn btn-primary">Dismiss</button>
-        </div>
-      ) }
-      <script>
-        import { $ } from '../ts/utils'
-
-        $('#dev-dismiss')?.addEventListener('click', ()=>{
-          $('.toast.alert')?.classList.toggle('hidden')
-        })
-      </script>
+      { isDeveleporMode && <DeveloperAlert /> }
       <Hero />
       <Section sectionClasses={['md:p-12']}>
         <h2 id="themes" class="text-4xl md:text-6xl font-bold mb-12">Que aprenderas?</h2>
         <Themes />
       </Section>
-      <!-- <Section>
+      <Section sectionClasses={['bg-base-200']}>
         <h2 id="themes" class="text-4xl md:text-6xl font-bold mb-12">Instructores</h2>
         <Instructors>
           <InstructorsList isCard={true}/>
         </Instructors>
-        <Contact />
-      </Section> -->
+      </Section>
+      <Contact />
     </main>
+    <Footer >
+      <FooterBody />
+    </Footer>
     <script src='../ts/main.ts'></script>
   </div>
 </Layout>

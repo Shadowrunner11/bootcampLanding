@@ -1,6 +1,7 @@
 import mixpanel, { Config } from "mixpanel-browser";
 import { MIXPANEL_KEY, isMixpanelAvailable, mixPanelDefaultConfig } from "../config/mixpanel";
 
+
 const mixpanelInstance = isMixpanelAvailable ? mixpanel : undefined
 
 export enum MixPanelEvents {
@@ -13,8 +14,10 @@ export const ctaText = {
   whatsapp: 'para comunicarse a traves de whatsapp'
 }
 
+const blackListObsevers: any = []
+
 export class MixPanelLocal {
-  private static instance: MixPanelLocal;
+  private static instance?: MixPanelLocal;
 
   private constructor(options: Partial<Config>){
     mixpanelInstance?.init( MIXPANEL_KEY, options)
@@ -39,6 +42,13 @@ export class MixPanelLocal {
     mixpanelInstance?.track(MixPanelEvents.VISIT, {
       description
     })
+  }
+
+  deactivate(observer: unknown){
+    if(blackListObsevers.some((blakList: any) => observer instanceof blakList ))
+      throw new Error('not allowd')
+
+    MixPanelLocal.instance = undefined
   }
 }
 

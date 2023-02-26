@@ -1,28 +1,32 @@
 ---
 import Avatr from "../Avatar/Avatr.astro";
 import Github from "../Icons/Github.astro";
-
+import Linkedin from "../Icons/Linkedin.astro";
+import styles from './styles.module.css'
 interface Props {
   src?: string;
   name?: string;
   description?: string;
-  github?: string;
   isCard?: boolean
+  social?: any;
 }
 
-const { src, name, description, github, isCard } = Astro.props
+const { src, name, description, isCard, social } = Astro.props
 
 ---
 
-<div class={`flex flex-col justify-center align-center h-80 gap-8 ${isCard && 'card-body border'}`}>
+<div class={`flex flex-col justify-center align-center mh-84 gap-8 ${isCard && 'card-body border rounded'}`}>
   <Avatr src={src} />
-  <h4 class="text-center">{name}</h4>
+  <h4 class="text-center text-xl font-black">{name}</h4>
   <div class="h-12">
-    {description &&  <p>{description}</p>}
+    {description &&  <p class="text-center h-24">{description}</p>}
   </div>
-  <div class="flex justify-center">
-    <a href={github}>
+  <div class="flex justify-center mb-2 gap-2">
+    <a class={styles.purple} href={social?.github}>
       <Github />
+    </a>
+    <a class={styles.purple} href={social?.linkedin}>
+      <Linkedin />
     </a>
   </div>
 </div>
