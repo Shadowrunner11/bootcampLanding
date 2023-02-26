@@ -15,7 +15,7 @@ export class Schedule {
       return true
   
     const currenTime = new Date().getUTCHours()
-    return currenTime <= (this.to ?? 0) && currenTime >= (this.from ?? 23)
+    return currenTime <= (this.to ?? 23) && currenTime >= (this.from ?? 0)
   }
 }
 
