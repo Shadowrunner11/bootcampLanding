@@ -1,0 +1,22 @@
+name: DEPLOY PROD
+permissions:
+  contents: write
+on:
+  push:
+    tags:
+      - "prod-v*"
+
+jobs:
+  deploy-prod:
+    environment: prod
+    name: IPFS Pinata deploy GitHub action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: popovoleksandr/ipfs-pinata-deploy-action@v1.6.3
+        with:
+          pin-name: 'My personal site'
+          path: './build'
+          pinata-api-key: ${{ env.PINATA_API_KEY }}
+          pinata-secret-api-key: ${{ env.PINATA_SECRET }}
+          verbose: true
+          remove-old: false
