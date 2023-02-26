@@ -18,7 +18,7 @@ import { options } from './properties'
 
         return ( 
           <div class:list={clasList}>
-            <DeveloperSettingItem {{...rest}}/>
+            <DeveloperSettingItem {...rest}/>
               {
                 isAvailable ? <SettingInputToogler id={id} defaultOf={defaultOf}/>
                   : <p class="w-52">
