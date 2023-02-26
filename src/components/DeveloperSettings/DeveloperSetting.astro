@@ -1,0 +1,106 @@
+---
+import DeveloperSettingItem from './DeveloperSettingItem.astro';
+import Phone from './Phone.astro';
+import SettingInputToogler from './SettingToogler.astro';
+import { options } from './properties'
+---
+<div class="modal z-index40" data-modal="developer-settings">
+  <div class="modal-box">
+    <h4 class="mb-12">Si existe documentacion externa, haz click en el <span class="text-accent">nombre</span></h4>
+    <p>Algunos servicios comeznaran siempre prendidos, para iinicar desactivado, quitar de las envs</p>
+    <Phone id='mock-phone'/>
+    <div class="divider"/>
+    {
+      options.map(({isAvailable, id, defaultOf, ...rest})=>{
+        const clasList = ['flex', 'justify-between']
+        if(!isAvailable)
+          clasList.push('text-gray-500')
+
+        return ( 
+          <div class:list={clasList}>
+            <DeveloperSettingItem {...rest}/>
+              {
+                isAvailable ? <SettingInputToogler id={id} defaultOf={defaultOf}/>
+                  : <p class="w-52">
+                    Esta caracterista no esta disponible, revisa tus envs
+                  </p>
+                }
+          </div>
+          <div class="divider"/>
+        )})
+    }
+    <div class="modal-action">
+      <button
+        aria-label="close modal"
+        role="contentinfo" 
+        class="btn btn-primary" 
+        data-button="close-dev-options">
+          Close
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  import hotkeys from 'hotkeys-js'
+  import { $ } from '../../ts/utils'
+  import { MixpanelObserver, WhatsappContactsObserver } from '../../ts/reactive'
+  import { options } from './properties'
+  import { DeveloperSettingType } from './types'
+  import { mixPanelLocal } from '../../ts/services/Mixpanel'
+  
+  function getMockPhone(){
+    const phoneElement = $('input#mock-phone')
+    if(phoneElement instanceof HTMLInputElement)
+      return Number(phoneElement.value)
+
+    throw new Error('There is not phone')
+  }
+
+  MixpanelObserver.subscribe(mixPanelLocal())
+
+  options.forEach(({ id })=>{
+    $(`input#${id}`)?.addEventListener('change', ({target})=>{
+      if(!(target instanceof HTMLInputElement))
+        return
+        
+      const { checked } = target
+
+      if(id === 'channelWhatsapp' ){
+        if(checked)
+          return WhatsappContactsObserver
+            .forceActivateAttention(getMockPhone())
+
+        return WhatsappContactsObserver
+          .clear()
+      }
+
+      if(id === DeveloperSettingType.MIXPANEL)
+        if(!checked)
+          return MixpanelObserver.deactivate()
+          
+        return MixpanelObserver.activate()
+    })
+  })
+
+
+  // TODO: convertir a setoide, lenses, esta impuro
+  const modal = $('[data-modal="developer-settings"]')
+
+  function toggleModal(){
+    modal?.classList.toggle('modal-open')
+  }
+
+  modal
+    ?.querySelector('[data-button="close-dev-options"]')
+    ?.addEventListener('click', (event)=>{
+      event.preventDefault()
+
+      toggleModal()
+    })
+
+  hotkeys('ctrl+k', (event)=>{
+    event.preventDefault()
+    toggleModal()
+  })
+</script>

@@ -1,3 +1,4 @@
+import { WhatsappContactsObserver } from "../reactive";
 import { mixPanelLocal } from "../services/Mixpanel";
 import { WhatsappContacts } from "../services/WhatsappContacts";
 import { $ } from "../utils";
@@ -16,6 +17,8 @@ export function changeWpHref(button: HTMLAnchorElement, conctacts: Whatsapp[]) {
 
   if (firstWPContac)
     button.target = '_blank'
+  else
+    button.target = '_self'
 
   button.href = firstWPContac?.linkString ?? "#contact"
 }
@@ -27,7 +30,7 @@ export function addCTAWpClickListener(dataCta: string) {
 
   const contacts = serviceWp.getContacts(true) as Whatsapp[]
 
-  console.log(contacts)
+  WhatsappContactsObserver.subscribe(contacts)
 
   $(`[data-cta="${dataCta}"]`)?.addEventListener('click', ({ target }) => {
     if (!(target instanceof HTMLAnchorElement)) return;

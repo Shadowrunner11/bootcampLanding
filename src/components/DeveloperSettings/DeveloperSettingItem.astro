@@ -1,0 +1,23 @@
+---
+import Info from '../Icons/Info.astro';
+
+interface Props {
+  infoURL?: string;
+  label?: string;
+  id?: string;
+  description?: string;
+}
+
+
+
+const { description, infoURL, label } =  Astro.props
+---
+<div class="flex justify-between items-center w-24 gap-12">
+  <p class="w-12">
+    {infoURL ? <a class="text-accent" href={infoURL}>{label}</a> : label }
+  </p>
+  <div class="tooltip tooltip-right tooltip-info" data-tip={description}>
+    <Info />
+  </div>
+</div>
+ 

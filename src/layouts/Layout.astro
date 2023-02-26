@@ -1,4 +1,5 @@
 ---
+import BackToTop from '../components/BackToTop/BackToTop.astro';
 import Metatags from '../components/Metatags/Metatags.astro'
 import '../styles/global.sass'
 import '../styles/normalize.sass'
@@ -22,7 +23,8 @@ const favIconUrl = prefixWithBase('/favicon.gif')
 		<Metatags />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class="relative">
 		<slot />
+		<BackToTop />
 	</body>
 </html>

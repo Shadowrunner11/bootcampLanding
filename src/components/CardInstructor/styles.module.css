@@ -1,0 +1,9 @@
+.purple {
+  color: mediumslateblue;
+  filter: drop-shadow(1px 1px 1px cyan);
+}
+
+.purple:hover {
+  color: cyan;
+  filter: drop-shadow(1px 1px 1px mediumslateblue);
+}

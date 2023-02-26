@@ -1,0 +1,14 @@
+---
+interface Props {
+  id: string;
+  defaultOf?: boolean
+}
+
+const { id, defaultOf } = Astro.props
+---
+
+<div class="form-control w-52">
+  <label class="cursor-pointer label">
+    <input id={id} type="checkbox" class="toggle toggle-accent" checked={Boolean(!defaultOf)}/>
+  </label>
+</div>
