@@ -1,0 +1,28 @@
+<div id="carousel" class="rounded-box w-full flex md:flex-wrap content-center justify-center md:gap-12" >
+  <slot />
+</div>
+
+<script>
+  import { tns } from 'tiny-slider'
+  import throtle from 'just-throttle'
+
+  import { lensToggleSlider } from './main'
+
+  const slider = tns({
+    container: '#carousel',
+    items: 1,
+    controls: false,
+    gutter: 0,
+    nav: false
+  })
+
+  const [, toggleSlider ] = lensToggleSlider(slider)
+
+  toggleSlider()
+
+
+  addEventListener('resize', throtle(()=>{
+    toggleSlider()
+
+  }, 200, {leading: true}))
+</script>

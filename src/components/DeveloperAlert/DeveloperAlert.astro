@@ -1,0 +1,21 @@
+---
+import DeveloperSetting from "../DeveloperSettings/DeveloperSetting.astro"
+
+---
+
+<div class="toast alert hover:!bg-violet-600 z-50">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-info flex-shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+  <p>Esto solo se mostrara si estas en modo dev</p>
+  <p>Presiona <kbd class="kbd">ctrl</kbd> + <kbd class="kbd">k</kbd> para ver las opciones</p>
+  <button id="dev-dismiss" class="btn btn-primary">Dismiss</button>
+</div>
+
+<DeveloperSetting />
+
+<script>
+  import { $ } from '../../ts/utils'
+
+  $('#dev-dismiss')?.addEventListener('click', ()=>{
+    $('.toast.alert')?.classList.toggle('hidden')
+  })
+</script>
