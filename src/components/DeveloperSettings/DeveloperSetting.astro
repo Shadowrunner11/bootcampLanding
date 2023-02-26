@@ -11,7 +11,7 @@ import { options } from './properties'
     <Phone id='mock-phone'/>
     <div class="divider"/>
     {
-      options.map(({isAvailable, id, defaultOf, ...rest})=>{
+      options.map(({isAvailable, id, defaultOf, isActive, ...rest})=>{
         const clasList = ['flex', 'justify-between']
         if(!isAvailable)
           clasList.push('text-gray-500')
@@ -20,7 +20,7 @@ import { options } from './properties'
           <div class:list={clasList}>
             <DeveloperSettingItem {...rest}/>
               {
-                isAvailable ? <SettingInputToogler id={id} defaultOf={defaultOf}/>
+                isAvailable ? <SettingInputToogler id={id} defaultOf={defaultOf} isActive={isActive} />
                   : <p class="w-52">
                     Esta caracterista no esta disponible, revisa tus envs
                   </p>

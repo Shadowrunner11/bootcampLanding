@@ -9,7 +9,8 @@ export const options = [
       "infoURL": "https://developer.mixpanel.com/docs",
       "description":"Trackeamos eventos como clicks en los CTA y visitar a la web",
       "type": "switch",
-      "isAvailable": isMixpanelAvailable
+      "isAvailable": isMixpanelAvailable,
+      "isActive": localStorage.getItem("mixpanelStatus") === 'active'
     },
     {
       "label": "Supase", 

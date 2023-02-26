@@ -31,11 +31,14 @@ export class MixpanelObserver {
   }
 
   static deactivate(){
+    localStorage.setItem('mixpanelStatus', 'inactive')
     MixpanelObserver.mixPanelInstance.deactivate(MixpanelObserver)
   }
 
   static activate(){
+    localStorage.setItem('mixpanelStatus', 'active')
     MixpanelObserver.mixPanelInstance = MixPanelLocal.defaultInstance()
+    MixpanelObserver.mixPanelInstance.activate()
   }
 
 }
