@@ -6,7 +6,7 @@ import IconSwap from '../IconSwap.astro';
 
 <label class='swap swap-rotate p-2'>
   <button
-    data-toggle-theme='dark,light'
+    data-toggle-theme='light, dark'
     role='none'
     aria-label='Change theme'
     type='button'
@@ -25,7 +25,7 @@ import IconSwap from '../IconSwap.astro';
   import { $ } from '../../ts/utils/selectors';
   import { clickHandle } from './main';
 
-  themeChange();
+  themeChange(true);
 
   $('label.swap > button[data-button="change-theme"]')?.addEventListener(
     'click',
