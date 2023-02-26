@@ -3,7 +3,7 @@ import { Contact } from "../controllers/Contact"
 import { Schedule, Whatsapp } from "../controllers/Whatsapp"
 
 const defaultContacsRaw = [
-  { contact: new Contact(51956332124), schedule: new Schedule(9, 19)}
+  { contact: new Contact(51956332124), schedule: new Schedule(12, 23)}
 ]
 
 const defaultContacts = defaultContacsRaw
