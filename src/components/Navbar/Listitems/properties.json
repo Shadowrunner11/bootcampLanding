@@ -2,7 +2,8 @@
   "navigation":{
     "items":[
       { "label": "Temario", "href": "#themes", "data":"contactanos" },
-      { "label": "Información", "href": "#contact", "data":"contactanos" }
+      { "label": "Información", "href": "#contact", "data":"contactanos" },
+      { "label": "Preguntas frecuentes", "href": "#faq", "data":"contactanos" }
     ]
   }
 }

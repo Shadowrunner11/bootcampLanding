@@ -1,0 +1,25 @@
+---
+import {faq} from './module.json'
+import DefaultAccordionItem from './DefaultAccordionItem.astro'
+---
+
+<div class="accordion cursor-pointer">
+    {
+        faq.map(({question, answer})=> <DefaultAccordionItem title={question} content={answer} />)
+    }
+</div>
+
+<script>
+    import { $ , $$ } from '../../ts/utils'
+    $$(".accordionItem", this).forEach((element, index, array) => element.addEventListener('click', ()=>{
+        const title = element?.firstElementChild?.textContent
+
+        array.forEach(sibling => {
+            if (sibling?.firstElementChild?.textContent !== title) {
+                sibling?.lastElementChild?.classList.add('hidden')
+            }
+        });
+
+        element?.lastElementChild?.classList.toggle('hidden')
+    }))
+</script>

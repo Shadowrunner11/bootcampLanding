@@ -1,0 +1,22 @@
+{
+    "faq":[
+        {
+            "question": "¿Qué es un bootcamp gratuito?", "answer": "Un bootcamp gratuito es un programa de capacitación intensiva que se enfoca en enseñar habilidades específicas en un corto período de tiempo, sin costo para los participantes."
+        },
+        {
+            "question": "¿Quiénes pueden asistir a un bootcamp gratuito?", "answer": "La mayoría de los bootcamps gratuitos están abiertos a cualquier persona que cumpla con los requisitos mínimos de ingreso, como tener un nivel básico de educación y habilidades técnicas."
+        },
+        {
+            "question": "¿Qué temas se cubren en un bootcamp gratuito?", "answer": "Los temas varían según el programa, pero generalmente se enfocan en habilidades en demanda en la industria tecnológica, como programación, análisis de datos, diseño web y desarrollo de aplicaciones."
+        },
+        {
+            "question": "¿Cuánto tiempo dura un bootcamp gratuito?", "answer": "La duración de un bootcamp gratuito varía según el programa, pero generalmente dura entre unas pocas semanas y varios meses."
+        },
+        {
+            "question": "¿Cómo se aplican para un bootcamp gratuito?", "answer": "El proceso de solicitud varía según el programa, pero generalmente involucra completar un formulario en línea, proporcionar información personal y responder preguntas sobre habilidades y motivaciones."
+        },
+        {
+            "question": "¿Se otorgan certificados al finalizar un bootcamp gratuito?", "answer": "Muchos programas de bootcamp gratuito otorgan certificados de finalización a los participantes que completen con éxito el programa."
+        }
+    ]
+}

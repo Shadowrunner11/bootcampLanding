@@ -30,6 +30,11 @@
     {
       "title": "Introducción a OOP",
       "topics": [
+        "Abstracción",
+        "Encapsulación",
+        "Herencia",
+        "Composición",
+        "Polimorfismo",
         "Clases"
       ]
     }

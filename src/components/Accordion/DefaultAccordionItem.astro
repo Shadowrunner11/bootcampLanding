@@ -1,0 +1,14 @@
+---
+interface Props {
+  title: string;
+  content: string;
+}
+
+import Dropdown from '../Icons/Dropdown.astro';
+const { title, content } = Astro.props
+---
+
+<div class="accordionItem border-b">
+    <div class="accordionItem__title flex justify-between items-center font-bold text-lg p-4"><h3 class="">{title}</h3><span class="w-6"><Dropdown/></span></div>
+    <div class="accordionItem__content px-8 py-4 hidden">{content}</div>
+</div>

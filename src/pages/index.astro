@@ -10,6 +10,7 @@ import DeveloperAlert from '../components/DeveloperAlert/DeveloperAlert.astro';
 import Footer from '../layouts/Footer.astro';
 import FooterBody from '../components/Footer/FooterBody.astro';
 import MaybeCarousel from '../layouts/MaybeCarousel.astro';
+import Accordion from '../components/Accordion/Accordion.astro';
 
 const isDeveleporMode = import.meta.env.PUBLIC_APP_MODE === 'development' || import.meta.env.DEV
 ---
@@ -31,6 +32,10 @@ const isDeveleporMode = import.meta.env.PUBLIC_APP_MODE === 'development' || imp
         </MaybeCarousel>
       </Section>
       <Contact />
+      <Section sectionClasses={['bg-base-200']}>
+        <h2 id="faq" class="text-4xl md:text-6xl font-bold mb-12">Preguntas frecuentes</h2>
+        <Accordion />
+      </Section>
     </main>
     <Footer >
       <FooterBody />
