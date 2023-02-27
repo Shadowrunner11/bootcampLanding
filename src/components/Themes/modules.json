@@ -1,21 +1,21 @@
 {
   "themes":[
     { 
-      "title": "Introduccion a la programacion", 
+      "title": "Introducción a la programación", 
       "topics": [
-        "Interpretacion y lectura de codigo",
-        "Como operan las computadoras",
-        "Creacion de scripts",
+        "Interpretación y lectura de código",
+        "¿Cómo operan las computadoras?",
+        "Creación de scripts",
         "Variables y tokens",
         "Proyectos con python"
       ]
     },
     {
-      "title": "Introduccion a la organizacion computacional", 
+      "title": "Introducción a la organización computacional", 
       "topics": [
-        "Como funcionan los procesadores",
-        "Como funcionan la memoria",
-        "Induccion a C"
+        "¿Cómo funcionan los procesadores?",
+        "¿Cómo funciona la memoria?",
+        "Inducción a C"
       ]
     },
     {
@@ -24,11 +24,11 @@
         "Bucles",
         "Condicionales",
         "Funciones",
-        "Modularizacion"
+        "Modularización"
       ]
     },
     {
-      "title": "Introduccion a OOP",
+      "title": "Introducción a OOP",
       "topics": [
         "Clases"
       ]

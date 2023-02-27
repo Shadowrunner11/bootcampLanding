@@ -11,7 +11,7 @@
       "name": "email"
     },
     {
-      "label": "Telefono",
+      "label": "Teléfono",
       "type": "text",
       "name": "phone"
     }
