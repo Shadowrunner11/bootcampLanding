@@ -14,10 +14,15 @@ export async function sendForm(data: Record<string, unknown>){
       .validateSync(data, { abortEarly: false })
     
     // TODO: add Sentry or another way to catch errors
-    await supabseLocal()
+    // TODO: this retunrs a thenavailable not a promise, should convert ?
+    // this means that when ther is a error we will not notice
+    supabseLocal()
       .sendFormContact(validatedData)
 
   } catch (error) {
-    return handleValidationError(error)
+    const errors = handleValidationError(error)
+    console.error(error, errors)
+
+    return errors
   }
 }
