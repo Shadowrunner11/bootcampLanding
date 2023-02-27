@@ -14,7 +14,7 @@ jobs:
       PUBLIC_SUPABASE_API: ${{ vars.PUBLIC_SUPABASE_API }}
       PUBLIC_SUPABSE_TOKEN: ${{ vars.PUBLIC_SUPABSE_TOKEN }}
       PUBLIC_APP_MODE: ${{ vars.PUBLIC_APP_MODE }}
-      PUBLIC_BASE_URL: ${{ vars.PUBLIC_BASE_URL }}
+      PUBLIC_BASE_PATH: ${{ vars.PUBLIC_BASE_PATH }}
     name: deploy dev
     runs-on: ubuntu-latest
     steps:
