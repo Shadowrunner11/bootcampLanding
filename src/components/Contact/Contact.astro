@@ -42,7 +42,6 @@ import { formFields } from './module.json'
 
     const invalidFields = await sendForm(pojo)
 
-
     if(invalidFields?.length)
       return invalidFields.forEach(path =>{
         const element = $(`[name="${path}"`, this as HTMLFormElement)

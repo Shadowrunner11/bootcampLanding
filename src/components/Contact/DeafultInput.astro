@@ -11,5 +11,5 @@ const { label, name, type } = Astro.props
 
 <label for={name} class="input-group input-group-vertical max-w-xl">
   <span>{label}</span>
-  <input id={name} type={type} class="input input-bordered" />
+  <input id={name} type={type} name={name} class="input input-bordered" />
 </label>
