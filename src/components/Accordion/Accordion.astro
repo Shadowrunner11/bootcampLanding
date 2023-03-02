@@ -11,16 +11,16 @@ import Accordion from '../../layouts/Accordion.astro';
 </Accordion>
 
 <script>
-    import { $ , $$ } from '../../ts/utils'
-    $$(".accordionItem", this).forEach((element, index, array) => element.addEventListener('click', ()=>{
+    import { $$ } from '../../ts/utils'
+    $$(".accordionItem").forEach((element, _, array) => element.addEventListener('click', ()=>{
         const title = element?.firstElementChild?.textContent
-
+  
         array.forEach(sibling => {
             if (sibling?.firstElementChild?.textContent !== title) {
                 sibling?.lastElementChild?.classList.add('hidden')
             }
         });
-
+  
         element?.lastElementChild?.classList.toggle('hidden')
     }))
 </script>

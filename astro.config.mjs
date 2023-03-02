@@ -10,5 +10,6 @@ export default defineConfig({
     site: 'https://astronaut.github.io', 
     base: process.env.PUBLIC_BASE_PATH
   } : {}),
-  integrations: [tailwind()]
+  integrations: [tailwind()],
+  vite: {build: {sourcemap: isGithubActions}}
 });
