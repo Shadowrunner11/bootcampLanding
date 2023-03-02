@@ -1,1 +1,0 @@
-import{a as l}from"./SwapTheme.astro_astro_type_script_index_0_lang.edef63c2.js";l(".accordionItem",globalThis)?.forEach((t,s,e)=>t.addEventListener("click",()=>{const d=t?.firstElementChild?.textContent;e.forEach(i=>{i?.firstElementChild?.textContent!==d&&i?.lastElementChild?.classList.add("hidden")}),t?.lastElementChild?.classList.toggle("hidden")}));
