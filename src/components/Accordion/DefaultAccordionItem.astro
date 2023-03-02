@@ -12,18 +12,3 @@ const { title, content } = Astro.props
     <div class="accordionItem__title flex justify-between items-center font-bold text-lg p-4"><h3 class="">{title}</h3><span class="w-6"><Dropdown/></span></div>
     <div class="accordionItem__content px-8 py-4 hidden">{content}</div>
 </div>
-
-<script>
-  import { $ , $$ } from '../../ts/utils'
-  $$(".accordionItem", this).forEach((element, index, array) => element.addEventListener('click', ()=>{
-      const title = element?.firstElementChild?.textContent
-
-      array.forEach(sibling => {
-          if (sibling?.firstElementChild?.textContent !== title) {
-              sibling?.lastElementChild?.classList.add('hidden')
-          }
-      });
-
-      element?.lastElementChild?.classList.toggle('hidden')
-  }))
-</script>
