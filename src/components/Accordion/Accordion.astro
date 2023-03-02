@@ -1,13 +1,14 @@
 ---
 import {faq} from './module.json'
 import DefaultAccordionItem from './DefaultAccordionItem.astro'
----
 
-<div class="accordion cursor-pointer">
+import Accordion from '../../layouts/Accordion.astro';
+---
+<Accordion>
     {
         faq.map(({question, answer})=> <DefaultAccordionItem title={question} content={answer} />)
     }
-</div>
+</Accordion>
 
 <script>
     import { $ , $$ } from '../../ts/utils'
