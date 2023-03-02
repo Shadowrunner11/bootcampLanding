@@ -12,7 +12,7 @@ import Accordion from '../../layouts/Accordion.astro';
 
 <script>
     import { $$ } from '../../ts/utils'
-    $$(".accordionItem", this)?.forEach((element, index, array) => element.addEventListener('click', ()=>{
+    $$(".accordionItem").forEach((element, _, array) => element.addEventListener('click', ()=>{
         const title = element?.firstElementChild?.textContent
   
         array.forEach(sibling => {
