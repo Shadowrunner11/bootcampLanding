@@ -3,7 +3,10 @@ import BackToTop from '../components/BackToTop/BackToTop.astro';
 import Metatags from '../components/Metatags/Metatags.astro'
 import '../styles/global.sass'
 import '../styles/normalize.sass'
+
 import { prefixWithBase } from '../ts/utils';
+import WhatsappCTA from '../components/WhatsappCTA/WhatsappCTA.astro';
+import FixedBox from './FixedBox.astro';
 export interface Props {
 	title: string;
 }
@@ -26,7 +29,11 @@ const favIconUrl = prefixWithBase('/favicon.gif')
 	<body class="relative">
 		<div class="wrapper">
 			<slot />
-			<BackToTop />
+			<FixedBox>
+				<WhatsappCTA />
+				<BackToTop />
+			</FixedBox>
 		</div>
 	</body>
 </html>
+
