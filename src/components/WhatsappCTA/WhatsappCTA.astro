@@ -1,0 +1,14 @@
+---
+import Whatsapp from "../Icons/Whtasapp.astro";
+---
+
+<a class="btn rounded-full p-0" data-cta="whatsapp">
+  <Whatsapp />
+</a>
+
+<script>
+import { addCTAWpClickListener } from "../../ts/controllers/CTA"
+
+addCTAWpClickListener('whatsapp')
+
+</script>

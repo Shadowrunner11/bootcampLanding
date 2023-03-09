@@ -2,12 +2,13 @@
 export interface Props{
   nameCta: string;
   text: string;
-  href: string
+  href: string;
+  target: string;
 }
-const { nameCta, text, href } = Astro.props
+const { nameCta, text, href, target } = Astro.props
 ---
 
-<a class="btn btn-primary" data-cta={nameCta} href={href}>
+<a class="btn btn-primary" data-cta={nameCta} href={href} target={target}>
   {text}
 </a>
 

@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar/Navbar.astro';
+import Section from '../layouts/Section.astro';
+import Footer from '../layouts/Footer.astro';
+import FooterBody from '../components/Footer/FooterBody.astro';
+
+import Accordion from '../components/Accordion/Accordion.astro';
+
+---
+
+<Layout title='Bootcamp para principinates CONOVATEC'>
+    <div class='root relative'>
+      <Navbar />
+      <main>
+        <Section sectionClasses={['bg-base-200', 'pt-32']}>
+            <h2 id="faq" class="text-4xl md:text-6xl font-bold mb-12">Preguntas frecuentes</h2>
+            <Accordion />
+        </Section>
+      </main>
+      <Footer >
+        <FooterBody />
+      </Footer>
+    </div>
+</Layout>
+

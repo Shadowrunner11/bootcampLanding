@@ -2,9 +2,9 @@ import { contactsAPI } from "../config/whatsapp"
 import { Contact } from "../controllers/Contact"
 import { Schedule, Whatsapp } from "../controllers/Whatsapp"
 
-const defaultContacsRaw = [
+const defaultContacsRaw = Object.freeze([
   { contact: new Contact(51956332124), schedule: new Schedule(12, 23)}
-]
+])
 
 const defaultContacts = defaultContacsRaw
   .map(({contact, schedule}) => new Whatsapp(schedule, contact))

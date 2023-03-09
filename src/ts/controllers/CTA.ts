@@ -13,7 +13,7 @@ export function addCTAClikListener(dataCta: string) {
 }
 
 export function changeWpHref(button: HTMLAnchorElement, conctacts: Whatsapp[]) {
-  const [firstWPContac] = conctacts.filter(({ isAvailable }) => isAvailable)
+  const [ firstWPContac ] = conctacts.filter(({ isAvailable }) => isAvailable)
 
   if (firstWPContac)
     button.target = '_blank'
@@ -32,12 +32,12 @@ export function addCTAWpClickListener(dataCta: string) {
 
   WhatsappContactsObserver.subscribe(contacts)
 
-  $(`[data-cta="${dataCta}"]`)?.addEventListener('click', ({ target }) => {
-    if (!(target instanceof HTMLAnchorElement)) return;
+  $(`[data-cta="${dataCta}"]`)?.addEventListener('click', ({ currentTarget }) => {
+    if (!(currentTarget instanceof HTMLAnchorElement)) return;
 
-    mixPanelLocal().trackCta(target.textContent || '');
+    mixPanelLocal().trackCta(currentTarget.textContent || '');
 
-    changeWpHref(target, contacts)
+    changeWpHref(currentTarget, contacts)
   })
 
 }
