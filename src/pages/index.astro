@@ -10,6 +10,7 @@ import DeveloperAlert from '../components/DeveloperAlert/DeveloperAlert.astro';
 import Footer from '../layouts/Footer.astro';
 import FooterBody from '../components/Footer/FooterBody.astro';
 import MaybeCarousel from '../layouts/MaybeCarousel.astro';
+import UnavailableContactsToast from '../components/UnavailableContactsToast/UnavailableContactsToast.astro';
 
 const isDeveleporMode = import.meta.env.PUBLIC_APP_MODE === 'development' || import.meta.env.DEV
 ---
@@ -31,6 +32,7 @@ const isDeveleporMode = import.meta.env.PUBLIC_APP_MODE === 'development' || imp
         </MaybeCarousel>
       </Section>
       <Contact />
+			<UnavailableContactsToast dataToast="toast-without-contacts"/>
     </main>
     <Footer >
       <FooterBody />
