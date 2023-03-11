@@ -14,7 +14,7 @@ export function addCTAClikListener(dataCta: string) {
 }
 
 export function changeWpHref(button: HTMLAnchorElement, conctacts: Whatsapp[], dataToast: string) {
-  let [ firstWPContac ] = conctacts.filter(({ isAvailable }) => isAvailable);
+  const [ firstWPContac ] = conctacts.filter(({ isAvailable }) => isAvailable);
 
   if (firstWPContac)
     button.target = '_blank'
