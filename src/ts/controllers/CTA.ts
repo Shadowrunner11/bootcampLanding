@@ -3,6 +3,7 @@ import { mixPanelLocal } from "../services/Mixpanel";
 import { WhatsappContacts } from "../services/WhatsappContacts";
 import { $ } from "../utils";
 import type { Whatsapp } from "./Whatsapp";
+import { addToastAnimatedListener } from "./Toast";
 
 export function addCTAClikListener(dataCta: string) {
   $(`[data-cta="${dataCta}"]`)?.addEventListener('click', ({ target }) => {
@@ -12,20 +13,22 @@ export function addCTAClikListener(dataCta: string) {
   })
 }
 
-export function changeWpHref(button: HTMLAnchorElement, conctacts: Whatsapp[]) {
-  const [ firstWPContac ] = conctacts.filter(({ isAvailable }) => isAvailable)
+export function changeWpHref(button: HTMLAnchorElement, conctacts: Whatsapp[], dataToast: string) {
+  const [ firstWPContac ] = conctacts.filter(({ isAvailable }) => isAvailable);
 
   if (firstWPContac)
     button.target = '_blank'
-  else
-    button.target = '_self'
+  else {
+    button.target = '_self';
+    addToastAnimatedListener(dataToast);
+  }
 
   button.href = firstWPContac?.linkString ?? "#contact"
 }
 
 
 // TODO: revisar hay q hacer overloading
-export function addCTAWpClickListener(dataCta: string) {
+export function addCTAWpClickListener(dataCta: string, dataToast: string = 'toast-without-contacts') {
   const serviceWp = new WhatsappContacts()
 
   const contacts = serviceWp.getContacts(true) as Whatsapp[]
@@ -37,7 +40,7 @@ export function addCTAWpClickListener(dataCta: string) {
 
     mixPanelLocal().trackCta(currentTarget.textContent || '');
 
-    changeWpHref(currentTarget, contacts)
+    changeWpHref(currentTarget, contacts, dataToast);
   })
 
 }
