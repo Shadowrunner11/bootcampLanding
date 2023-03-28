@@ -19,17 +19,21 @@ const parsedDuration = duration + "s";
     animation-name: toastAnimation;
     animation-timing-function: ease-in-out;
     animation-duration: var(--parsedDuration);
+    diplay: none;
   }
 
   @keyframes toastAnimation {
     0% {
       opacity: 0;
+      display: block;
     }
     50% {
       opacity: 1;
+      display: block;
     }
     100% {
       opacity: 0;
+      display: block;
     }
   }
 </style>
