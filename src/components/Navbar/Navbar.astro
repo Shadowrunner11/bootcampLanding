@@ -3,12 +3,13 @@ import Conovatec from "../Icons/Conovatec.astro";
 import Menu from "./Menu.astro";
 import SwapTheme from "./SwapTheme.astro";
 import ListItems from './Listitems/ListItems.astro';
+import { prefixWithBase } from '../../ts/utils';
 ---
 <nav class="fixed top-0 bg-base-100">
   <div class="navbar p-4">
     <div class="navbar-start">
       <Menu data-button="menu"/>
-      <a href="#" class="p-2 text-lg md:text-2xl font-extrabold">
+      <a href={prefixWithBase("/#")} class="p-2 text-lg md:text-2xl font-extrabold">
         CONOVA tec _
       </a>
     </div>
