@@ -15,25 +15,27 @@ const parsedDuration = duration + "s";
 ---
 
 <style define:vars={{ parsedDuration }}>
+  .toast {
+    z-index: -1;
+  }
+
   .toast-animated:not(:target) {
     animation-name: toastAnimation;
     animation-timing-function: ease-in-out;
     animation-duration: var(--parsedDuration);
-    display: none;
+    display: block;
+    z-index: 40;
   }
 
   @keyframes toastAnimation {
-    0% {
-      opacity: 0;
-      display: block;
-    }
-    50% {
-      opacity: 1;
-      display: block;
-    }
+    0%,
     100% {
       opacity: 0;
-      display: block;
+    }
+
+    35%,
+    65% {
+      opacity: 1;
     }
   }
 </style>
